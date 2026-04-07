@@ -1,0 +1,69 @@
+# Incretin-Based Therapies and Cardiovascular Outcomes: A Bayesian Network Meta-Analysis of CVOTs
+
+## Research Question
+In patients with established atherosclerotic cardiovascular disease (ASCVD), how do different incretin-based therapies compare in reducing major adverse cardiovascular events (MACE) versus placebo, and what is their relative ranking?
+
+## PICO Framework
+
+### Population
+Patients with established ASCVD (prior myocardial infarction, stroke, or peripheral artery disease). Not limited to type 2 diabetes mellitus — includes trials enrolling non-diabetic patients (e.g., SELECT, SURMOUNT-MMO).
+
+### Intervention
+All incretin-based therapies with completed or ongoing CVOTs:
+- **GLP-1 receptor agonists**: semaglutide injectable (SUSTAIN-6, SELECT), semaglutide oral (PIONEER 6, SOUL), liraglutide (LEADER), dulaglutide (REWIND), exenatide (EXSCEL), albiglutide (Harmony Outcomes), efpeglenatide (AMPLITUDE-O)
+- **Dual GLP-1/GIP receptor agonists**: tirzepatide (SURPASS-CVOT)
+- **Emerging multi-agonists**: triple GLP-1/GIP/glucagon agonists (retatrutide, survodutide) — include if CVOT data available by April 2026
+
+### Comparator
+Placebo
+
+### Outcomes
+**Primary**: 3-point MACE (composite of CV death, non-fatal MI, non-fatal stroke)
+
+**Secondary**:
+- 4-point MACE (3p-MACE + hospitalization for unstable angina)
+- Individual MACE components: CV death, non-fatal MI, non-fatal stroke
+- All-cause mortality
+- Heart failure hospitalization
+- Coronary revascularization
+- Stroke (fatal + non-fatal)
+- Transient ischemic attack
+- Peripheral arterial events
+- Kidney composite outcomes (new macroalbuminuria, eGFR decline, renal death)
+- Change in systolic blood pressure
+- Change in body weight
+- Change in HbA1c
+
+## Analysis Type
+**Bayesian network meta-analysis (NMA)** using random-effects model
+- Indirect head-to-head comparisons between all individual agents
+- SUCRA or P-score ranking
+- League table with all pairwise comparisons
+- Forest plots for each pairwise comparison
+- Placebo as common comparator connecting the network
+
+## Study Design
+Randomized controlled trials (RCTs) only
+
+## Databases
+PubMed, Embase, Cochrane CENTRAL, Scopus
+
+## Date Range
+Inception to April 2026, English language only
+
+## Known Major CVOTs to Include
+1. LEADER (liraglutide) — Marso et al., NEJM 2016
+2. SUSTAIN-6 (semaglutide SC) — Marso et al., NEJM 2016
+3. EXSCEL (exenatide) — Holman et al., NEJM 2017
+4. Harmony Outcomes (albiglutide) — Hernandez et al., Lancet 2018
+5. REWIND (dulaglutide) — Gerstein et al., Lancet 2019
+6. PIONEER 6 (semaglutide oral) — Husain et al., NEJM 2019
+7. AMPLITUDE-O (efpeglenatide) — Gerstein et al., NEJM 2021
+8. SELECT (semaglutide 2.4mg) — Lincoff et al., NEJM 2023
+9. SURPASS-CVOT (tirzepatide) — expected 2024-2025
+10. SOUL (oral semaglutide) — expected 2024-2025
+11. SURMOUNT-MMO (tirzepatide in non-diabetic ASCVD) — if available
+
+## Preliminary Analysis Type Decision
+analysis_type.preliminary: nma_candidate
+Rationale: >=7 distinct incretin agents with separate CVOTs, all sharing placebo as common comparator -> ideal NMA candidate with star-shaped network

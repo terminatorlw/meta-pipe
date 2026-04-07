@@ -1,0 +1,462 @@
+# PICO Framework for Network Meta-Analysis
+# Incretin-Based Therapies and Cardiovascular Outcomes
+# Date: 2026-04-07
+# Version: 1.0
+
+metadata:
+  title: "Comparative Cardiovascular Efficacy of Incretin-Based Therapies in Patients with Established Atherosclerotic Cardiovascular Disease: A Bayesian Network Meta-Analysis of Cardiovascular Outcomes Trials"
+  protocol_date: "2026-04-07"
+  prospero_id: "" # To be filled after registration
+  registration_date: "" # To be filled after approval
+  version: "1.0"
+  last_updated: "2026-04-07"
+  analysis_type: "nma_candidate"
+
+# Research Question
+research_question: |
+  In patients with established atherosclerotic cardiovascular disease (ASCVD),
+  how do different incretin-based therapies compare in reducing 3-point MACE
+  (cardiovascular death, non-fatal myocardial infarction, non-fatal stroke)
+  versus placebo, and what is their relative ranking?
+
+# PICO Components
+
+population:
+  description: "Patients with established ASCVD (prior MI, stroke, or PAD)"
+
+  inclusion_criteria:
+    disease:
+      - "Established atherosclerotic cardiovascular disease"
+      - "Prior myocardial infarction, OR"
+      - "Prior stroke (ischemic or hemorrhagic), OR"
+      - "Peripheral artery disease"
+      - "With or without type 2 diabetes mellitus"
+
+    patient_characteristics:
+      - "Adults: Age >=18 years"
+      - "Enrolled in cardiovascular outcomes trial (CVOT)"
+      - "High cardiovascular risk as defined by trial inclusion criteria"
+
+    diabetes_status:
+      - "Type 2 diabetes mellitus (majority of CVOTs)"
+      - "Non-diabetic obesity with ASCVD (SELECT, SURMOUNT-MMO)"
+      - "Both populations included; subgroup analysis pre-specified"
+
+  exclusion_criteria:
+    disease:
+      - "Type 1 diabetes mellitus"
+      - "No established ASCVD (primary prevention only populations)"
+    other:
+      - "Pediatric populations (<18 years)"
+
+intervention:
+  description: "Incretin-based therapies with completed CVOTs"
+
+  glp1_receptor_agonists:
+    - name: "Liraglutide"
+      trial: "LEADER"
+      dose: "1.8 mg SC daily"
+      n: 9340
+      year: 2016
+      journal: "NEJM"
+
+    - name: "Semaglutide SC (1 mg)"
+      trial: "SUSTAIN-6"
+      dose: "0.5 mg or 1 mg SC weekly"
+      n: 3297
+      year: 2016
+      journal: "NEJM"
+
+    - name: "Exenatide QW"
+      trial: "EXSCEL"
+      dose: "2 mg SC weekly"
+      n: 14752
+      year: 2017
+      journal: "NEJM"
+
+    - name: "Albiglutide"
+      trial: "Harmony Outcomes"
+      dose: "30-50 mg SC weekly"
+      n: 9463
+      year: 2018
+      journal: "Lancet"
+
+    - name: "Dulaglutide"
+      trial: "REWIND"
+      dose: "1.5 mg SC weekly"
+      n: 9901
+      year: 2019
+      journal: "Lancet"
+
+    - name: "Oral semaglutide (14 mg)"
+      trial: "PIONEER 6"
+      dose: "14 mg oral daily"
+      n: 3183
+      year: 2019
+      journal: "NEJM"
+
+    - name: "Efpeglenatide"
+      trial: "AMPLITUDE-O"
+      dose: "4 mg or 6 mg SC weekly"
+      n: 4076
+      year: 2021
+      journal: "NEJM"
+
+    - name: "Semaglutide SC (2.4 mg)"
+      trial: "SELECT"
+      dose: "2.4 mg SC weekly"
+      n: 17604
+      year: 2023
+      journal: "NEJM"
+      note: "Non-diabetic obesity with ASCVD"
+
+    - name: "Oral semaglutide (high-dose)"
+      trial: "SOUL"
+      dose: "14 mg oral daily"
+      n: ~9650
+      year: 2025
+      journal: "NEJM"
+
+  dual_agonists:
+    - name: "Tirzepatide"
+      target: "GLP-1/GIP dual agonist"
+      trials:
+        - trial: "SURPASS-CVOT"
+          comparator: "dulaglutide"
+          n: 13299
+          year: 2025
+          journal: "NEJM"
+        - trial: "SURMOUNT-MMO"
+          comparator: "placebo"
+          n: ~15000
+          year: "2025-2026"
+          note: "Non-diabetic ASCVD; include if results available"
+
+  emerging_agents:
+    note: "Triple GLP-1/GIP/glucagon agonists (retatrutide, survodutide) — include if CVOT data available by April 2026"
+
+comparator:
+  description: "Placebo"
+  type: "Placebo (matching injection or tablet)"
+  notes:
+    - "All CVOTs use placebo as comparator (except SURPASS-CVOT which uses dulaglutide)"
+    - "SURPASS-CVOT connects tirzepatide to the network via dulaglutide node"
+    - "Background standard-of-care therapy allowed in all trials"
+
+outcomes:
+  primary:
+    - name: "3-point MACE"
+      definition: "Composite of cardiovascular death, non-fatal myocardial infarction, and non-fatal stroke"
+      timing: "From randomization to first event or end of trial"
+      effect_measure: "Hazard Ratio (HR) with 95% CI"
+      notes: "Primary endpoint in all CVOTs; consistent definition across trials"
+
+  secondary:
+    cardiovascular:
+      - name: "4-point MACE"
+        definition: "3p-MACE + hospitalization for unstable angina"
+        effect_measure: "HR with 95% CI"
+
+      - name: "Cardiovascular death"
+        definition: "Death attributed to cardiovascular cause"
+        effect_measure: "HR with 95% CI"
+
+      - name: "Non-fatal myocardial infarction"
+        definition: "MI not resulting in death within 30 days"
+        effect_measure: "HR with 95% CI"
+
+      - name: "Non-fatal stroke"
+        definition: "Stroke not resulting in death within 30 days"
+        effect_measure: "HR with 95% CI"
+
+      - name: "All-cause mortality"
+        definition: "Death from any cause"
+        effect_measure: "HR with 95% CI"
+
+      - name: "Heart failure hospitalization"
+        definition: "Hospitalization with primary diagnosis of heart failure"
+        effect_measure: "HR with 95% CI"
+
+      - name: "Coronary revascularization"
+        definition: "PCI or CABG during follow-up"
+        effect_measure: "HR with 95% CI"
+
+      - name: "Stroke (fatal + non-fatal)"
+        definition: "Any stroke event"
+        effect_measure: "HR with 95% CI"
+
+      - name: "Transient ischemic attack"
+        definition: "TIA as defined by trial adjudication"
+        effect_measure: "HR with 95% CI"
+
+      - name: "Peripheral arterial events"
+        definition: "Peripheral revascularization or amputation"
+        effect_measure: "HR with 95% CI"
+
+    renal:
+      - name: "Kidney composite outcome"
+        definition: "New macroalbuminuria, sustained eGFR decline >=40%, renal death, or renal replacement therapy"
+        effect_measure: "HR with 95% CI"
+        notes: "Definition varies across trials; harmonize where possible"
+
+    metabolic:
+      - name: "Change in systolic blood pressure"
+        definition: "Change from baseline to end of trial"
+        effect_measure: "Mean Difference (MD) with 95% CI"
+
+      - name: "Change in body weight"
+        definition: "Change from baseline to end of trial (kg or %)"
+        effect_measure: "Mean Difference (MD) with 95% CI"
+
+      - name: "Change in HbA1c"
+        definition: "Change from baseline to end of trial (%)"
+        effect_measure: "Mean Difference (MD) with 95% CI"
+        notes: "Primarily relevant for T2DM subgroup"
+
+# Study Design Criteria
+
+study_design:
+  eligibility:
+    required:
+      - "Randomized controlled trials (RCTs)"
+      - "Cardiovascular outcomes trial (CVOT) design"
+      - "Minimum 1000 patients enrolled"
+      - "Minimum 1 year median follow-up"
+      - "Adjudicated cardiovascular events"
+
+    excluded:
+      - "Non-randomized studies"
+      - "Single-arm trials"
+      - "Observational studies"
+      - "Phase I/II dose-finding studies without CV endpoint adjudication"
+      - "Reviews, editorials, commentaries"
+      - "Post-hoc analyses without primary trial data"
+
+  blinding:
+    preference: "Double-blind, placebo-controlled"
+    acceptable: "Open-label if endpoint adjudication is blinded (e.g., SURPASS-CVOT)"
+
+# NMA-Specific Configuration
+
+nma:
+  framework: "Bayesian"
+  model: "Random-effects"
+  software: "R (gemtc, BUGSnet, or multinma package)"
+  priors: "Weakly informative (half-normal for between-study SD)"
+  common_comparator: "Placebo"
+  network_type: "Star-shaped with one closed loop (tirzepatide-dulaglutide-placebo)"
+
+  ranking:
+    method: "SUCRA (Surface Under the Cumulative Ranking Curve)"
+    alternative: "P-score"
+    output: "League table with all pairwise comparisons + rankogram"
+
+  consistency:
+    method: "Node-splitting for closed loops"
+    note: "Only one closed loop available (tirzepatide-dulaglutide-placebo)"
+
+  heterogeneity:
+    assessment: "Between-study variance (tau-squared)"
+    methods:
+      - "I-squared per comparison"
+      - "Global heterogeneity assessment"
+
+  transitivity:
+    assessment_factors:
+      - "Diabetes status (T2DM vs non-diabetic)"
+      - "CV risk profile (secondary vs primary prevention)"
+      - "Trial era and background therapy standards"
+      - "Follow-up duration"
+    pre_specified_effect_modifiers:
+      - "Proportion with T2DM"
+      - "Mean baseline HbA1c"
+      - "Proportion with prior MI"
+      - "Mean follow-up duration"
+
+# Subgroup Analyses
+
+subgroups:
+  planned:
+    - name: "Diabetes status"
+      categories: ["T2DM only", "Including non-diabetic (SELECT, SURMOUNT-MMO)"]
+      rationale: "Key population heterogeneity; non-diabetic ASCVD is emerging indication"
+
+    - name: "Drug class"
+      categories: ["GLP-1 RA only", "GLP-1/GIP dual agonist (tirzepatide)"]
+      rationale: "Different mechanism of action may yield different CV effects"
+
+    - name: "Administration route"
+      categories: ["Injectable", "Oral"]
+      rationale: "Oral semaglutide may have different bioavailability/adherence"
+
+    - name: "CV risk level"
+      categories: ["Established ASCVD (secondary prevention)", "High risk (mixed primary/secondary)"]
+      rationale: "REWIND enrolled lower-risk population vs LEADER/SUSTAIN-6"
+
+# Sensitivity Analyses
+
+sensitivity_analyses:
+  - name: "Excluding non-T2DM trials"
+    method: "Remove SELECT and SURMOUNT-MMO"
+    rationale: "Assess whether non-diabetic population changes rankings"
+
+  - name: "Excluding SURPASS-CVOT"
+    method: "Remove head-to-head trial (pure star network)"
+    rationale: "SURPASS-CVOT uses active comparator (dulaglutide), not placebo"
+
+  - name: "Fixed-effects NMA"
+    method: "Re-analyze with fixed-effects model"
+    rationale: "Assess sensitivity to model choice"
+
+  - name: "Informative priors"
+    method: "Use informative priors based on prior NMAs"
+    rationale: "Assess sensitivity to prior specification"
+
+  - name: "Excluding small trials"
+    method: "Remove trials with <5000 patients"
+    rationale: "Assess influence of smaller, less powered CVOTs"
+
+# Risk of Bias Assessment
+
+risk_of_bias:
+  tool: "Cochrane Risk of Bias 2 (RoB 2) for randomized trials"
+  process:
+    - "Dual independent assessment"
+    - "Resolve disagreements by consensus"
+  domains:
+    - "Randomization process"
+    - "Deviations from intended interventions"
+    - "Missing outcome data"
+    - "Measurement of outcome"
+    - "Selection of reported result"
+
+# GRADE / CINeMA Assessment
+
+grade:
+  framework: "CINeMA (Confidence in Network Meta-Analysis)"
+  domains:
+    - "Within-study bias"
+    - "Reporting bias"
+    - "Indirectness"
+    - "Imprecision"
+    - "Heterogeneity"
+    - "Incoherence"
+
+# Search Strategy
+
+search:
+  databases:
+    - name: "PubMed/MEDLINE"
+      platform: "Entrez"
+    - name: "Embase"
+      platform: "Ovid or Embase.com"
+    - name: "Cochrane CENTRAL"
+      platform: "Cochrane Library"
+    - name: "Scopus"
+      platform: "Elsevier"
+
+  trial_registries:
+    - "ClinicalTrials.gov"
+    - "WHO ICTRP"
+
+  date_range:
+    from: "Inception"
+    to: "2026-04-30"
+
+  language: "English only"
+
+  search_terms:
+    population:
+      - "cardiovascular disease"
+      - "atherosclerotic cardiovascular disease"
+      - "myocardial infarction"
+      - "stroke"
+      - "peripheral artery disease"
+      - "ASCVD"
+      - "coronary artery disease"
+
+    intervention:
+      - "GLP-1 receptor agonist"
+      - "glucagon-like peptide-1"
+      - "incretin"
+      - "tirzepatide"
+      - "semaglutide"
+      - "liraglutide"
+      - "dulaglutide"
+      - "exenatide"
+      - "albiglutide"
+      - "efpeglenatide"
+      - "GIP receptor agonist"
+
+    outcome:
+      - "cardiovascular outcomes"
+      - "MACE"
+      - "major adverse cardiovascular events"
+      - "cardiovascular death"
+      - "myocardial infarction"
+
+    design:
+      - "randomized controlled trial"
+      - "cardiovascular outcomes trial"
+      - "CVOT"
+
+# Key Expected Studies
+
+key_studies:
+  - trial: "LEADER"
+    drug: "Liraglutide"
+    pmid: "27295427"
+    result: "HR 0.87 (95% CI 0.78-0.97)"
+
+  - trial: "SUSTAIN-6"
+    drug: "Semaglutide SC"
+    pmid: "27633186"
+    result: "HR 0.74 (95% CI 0.58-0.95)"
+
+  - trial: "EXSCEL"
+    drug: "Exenatide QW"
+    pmid: "28881562"
+    result: "HR 0.91 (95% CI 0.83-1.00)"
+
+  - trial: "Harmony Outcomes"
+    drug: "Albiglutide"
+    pmid: "30291013"
+    result: "HR 0.78 (95% CI 0.68-0.90)"
+
+  - trial: "REWIND"
+    drug: "Dulaglutide"
+    pmid: "31189511"
+    result: "HR 0.88 (95% CI 0.79-0.99)"
+
+  - trial: "PIONEER 6"
+    drug: "Oral semaglutide"
+    pmid: "31185157"
+    result: "HR 0.79 (95% CI 0.57-1.11)"
+
+  - trial: "AMPLITUDE-O"
+    drug: "Efpeglenatide"
+    pmid: "34215025"
+    result: "HR 0.73 (95% CI 0.58-0.92)"
+
+  - trial: "SELECT"
+    drug: "Semaglutide 2.4mg"
+    pmid: "37952131"
+    result: "HR 0.80 (95% CI 0.72-0.90)"
+
+  - trial: "SOUL"
+    drug: "Oral semaglutide"
+    pmid: ""
+    result: "TBD — results expected 2025"
+
+  - trial: "SURPASS-CVOT"
+    drug: "Tirzepatide"
+    pmid: ""
+    result: "TBD — results expected 2025"
+
+# Version Control
+
+version_history:
+  - version: "1.0"
+    date: "2026-04-07"
+    changes: "Initial PICO definition for NMA of incretin CVOTs"
+    author: "Meta-analysis team"
