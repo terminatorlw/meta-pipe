@@ -1,0 +1,84 @@
+# Search Queries — Round 01
+
+**Date**: 2026-04-07
+**Databases**: PubMed/MEDLINE, Embase, Cochrane CENTRAL, Scopus
+
+---
+
+## PubMed/MEDLINE Query
+
+```
+("GLP-1 receptor agonist" OR "glucagon-like peptide-1" OR "glucagon-like peptide 1"
+ OR liraglutide OR semaglutide OR exenatide OR dulaglutide OR albiglutide
+ OR efpeglenatide OR tirzepatide OR lixisenatide OR "GLP-1" OR incretin
+ OR "GIP receptor agonist" OR "dual agonist" OR "twincretin")
+AND
+("cardiovascular outcomes" OR "MACE" OR "major adverse cardiovascular events"
+ OR "cardiovascular death" OR "cardiovascular mortality" OR "CVOT"
+ OR "cardiovascular outcomes trial")
+AND
+("randomized controlled trial"[pt] OR "randomized"[tiab] OR "randomised"[tiab]
+ OR "clinical trial"[pt] OR placebo[tiab])
+```
+
+Filters: English, Humans
+Date range: Inception to 2026/04/30
+
+## Embase Query (Ovid)
+
+```
+1. exp glucagon like peptide 1 receptor agonist/ or exp tirzepatide/
+   or exp liraglutide/ or exp semaglutide/ or exp dulaglutide/
+   or exp exenatide/ or exp albiglutide/ or exp efpeglenatide/
+   or exp lixisenatide/
+2. (GLP-1 receptor agonist* or glucagon-like peptide or incretin*
+   or liraglutide or semaglutide or exenatide or dulaglutide
+   or albiglutide or efpeglenatide or tirzepatide or lixisenatide).ti,ab.
+3. 1 or 2
+4. (MACE or major adverse cardiovascular event* or cardiovascular outcome*
+   or cardiovascular death or CVOT).ti,ab.
+5. exp randomized controlled trial/ or randomized.ti,ab. or placebo.ti,ab.
+6. 3 and 4 and 5
+7. limit 6 to (english language and human)
+```
+
+## Cochrane CENTRAL Query
+
+```
+#1 MeSH descriptor: [Glucagon-Like Peptide-1 Receptor] explode all trees
+#2 (GLP-1 OR glucagon-like peptide OR incretin* OR liraglutide OR semaglutide
+    OR exenatide OR dulaglutide OR albiglutide OR efpeglenatide
+    OR tirzepatide OR lixisenatide):ti,ab,kw
+#3 #1 OR #2
+#4 (MACE OR major adverse cardiovascular event* OR cardiovascular outcome*
+    OR CVOT):ti,ab,kw
+#5 #3 AND #4
+#6 Limit to Trials
+```
+
+## Scopus Query
+
+```
+TITLE-ABS-KEY(
+  ("GLP-1" OR "glucagon-like peptide" OR "incretin" OR "liraglutide"
+   OR "semaglutide" OR "exenatide" OR "dulaglutide" OR "albiglutide"
+   OR "efpeglenatide" OR "tirzepatide" OR "lixisenatide" OR "GIP agonist")
+  AND
+  ("MACE" OR "cardiovascular outcome*" OR "cardiovascular death" OR "CVOT"
+   OR "major adverse cardiovascular")
+  AND
+  ("randomized" OR "randomised" OR "trial" OR "placebo")
+)
+AND LANGUAGE(English)
+```
+
+## Supplementary Searches
+
+### ClinicalTrials.gov
+- Searched for: GLP-1 receptor agonist cardiovascular outcomes
+- Filter: Phase 3, Completed/Has Results
+- Key registrations verified: NCT01179048 (LEADER), NCT01720446 (SUSTAIN-6), NCT01144338 (EXSCEL), NCT02465515 (Harmony), NCT01394952 (REWIND), NCT02692716 (PIONEER 6), NCT03496298 (AMPLITUDE-O), NCT03574597 (SELECT), NCT03914326 (SOUL), NCT04255433 (SURPASS-CVOT)
+
+### Manual Reference Search
+- Checked reference lists of: Shokravi et al. 2026 (Cardiovasc Diabetol), JACC 2025 SR/MA (21 RCTs)
+- Conference proceedings: AHA 2023-2025, ESC 2023-2025, ADA 2023-2025

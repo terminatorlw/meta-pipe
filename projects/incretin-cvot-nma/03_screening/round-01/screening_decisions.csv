@@ -1,0 +1,12 @@
+study_id,trial_name,drug,first_author,year,pmid,title_abstract_decision,fulltext_decision,exclusion_reason,notes
+1,LEADER,Liraglutide,Marso,2016,27295427,include,include,,GLP-1 RA CVOT; T2DM + established CVD or high CV risk; 3p-MACE primary
+2,SUSTAIN-6,Semaglutide SC,Marso,2016,27633186,include,include,,GLP-1 RA CVOT; T2DM + high CV risk; 3p-MACE primary; pre-approval safety trial
+3,EXSCEL,Exenatide QW,Holman,2017,28881562,include,include,,GLP-1 RA CVOT; T2DM with/without CVD; 3p-MACE primary
+4,Harmony Outcomes,Albiglutide,Hernandez,2018,30291013,include,include,,GLP-1 RA CVOT; T2DM + established CVD; 3p-MACE primary
+5,REWIND,Dulaglutide,Gerstein,2019,31189511,include,include,,GLP-1 RA CVOT; T2DM + established CVD or CV risk factors; 3p-MACE primary; ~31% established CVD
+6,PIONEER 6,Oral semaglutide,Husain,2019,31185157,include,include,,GLP-1 RA CVOT; T2DM + high CV risk; 3p-MACE primary; pre-approval safety trial; short follow-up
+7,AMPLITUDE-O,Efpeglenatide,Gerstein,2021,34215025,include,include,,GLP-1 RA CVOT; T2DM + established CVD or CKD + CV risk; 3p-MACE primary
+8,SELECT,Semaglutide 2.4mg,Lincoff,2023,37952131,include,include,,GLP-1 RA CVOT; NON-DIABETIC overweight/obese + established ASCVD; 3p-MACE primary
+9,SOUL,Oral semaglutide,McGuire,2025,,include,include,,GLP-1 RA CVOT; T2DM + established ASCVD or CKD; 3p-MACE primary; results 2025
+10,SURPASS-CVOT,Tirzepatide,Nicholls,2025,,include,include,,GLP-1/GIP dual agonist; T2DM + established ASCVD; vs dulaglutide (active comparator); creates closed loop in NMA
+11,ELIXA,Lixisenatide,Pfeffer,2015,26630143,include,include_sensitivity,,GLP-1 RA CVOT; T2DM + recent ACS; 4p-MACE primary (not 3p-MACE); include for sensitivity analysis only
