@@ -87,3 +87,4 @@ Dulaglutide ----[REWIND]------+--------[PIONEER 6]---- Oral Semaglutide
 | Date | Stage | Previous | New | Reason |
 |------|-------|----------|-----|--------|
 | 2026-04-07 | Preliminary | — | nma_candidate | 8-9 distinct agents, star-shaped network with placebo, ideal for Bayesian NMA |
+| 2026-04-07 | Confirmation | nma_candidate | **nma** (confirmed) | 10 RCTs, 100% comparative, connected network, transitivity plausible (4.5/5 criteria met) |
